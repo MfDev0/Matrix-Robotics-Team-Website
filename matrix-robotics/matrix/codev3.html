@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Matrix - CRAM_V3 CODE" data-ar="ماتريكس - برمجة CRAM_V3">Matrix - CRAM_V3 CODE</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Tajawal:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="matrix-theme.css">
+    <script src="matrix-theme.js" defer></script>
+    <style>
+        .details-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--matrix-green);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            text-shadow: var(--glow);
+            transform: translateX(-5px);
+        }
+
+        .code-header {
+            border-bottom: 1px solid var(--dark-green);
+            padding-bottom: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .code-subtitle {
+            font-family: var(--font-mono);
+            color: var(--mid-green);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-title {
+            font-size: 2.5rem;
+            color: var(--matrix-green);
+            text-shadow: var(--glow);
+        }
+
+        .code-section {
+            margin-bottom: 4rem;
+            background: rgba(0, 255, 65, 0.02);
+            border-left: 2px solid var(--dark-green);
+            padding: 2rem;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            color: var(--mid-green);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--matrix-green);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .code-block {
+            background: #000;
+            border: 1px solid var(--dark-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--matrix-green);
+            line-height: 1.5;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-block::before {
+            content: "PRECISION_CORE_v3.0";
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+
+        .highlight-box {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px dashed var(--matrix-green);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--matrix-green);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .content-block {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 1.5rem;
+        }
+
+        .block-title {
+            color: var(--matrix-green);
+            font-family: var(--font-mono);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .tech-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .tech-list li {
+            color: rgba(0, 255, 65, 0.8);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        .tech-list li::before {
+            content: ">";
+            color: var(--matrix-green);
+            font-family: var(--font-mono);
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--matrix-green);
+            padding: 5px 12px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-text">
+            <img class="logo-img" src="images/511274287_122104813238922635_683980615426849311_n%20%281%29.jpg"
+                alt="Matrix Logo">
+            <span class="logo-label" data-en="[ MATRIX_ROBOTICS ]" data-ar="[ ماتريكس_للروبوتات ]">[ MATRIX_ROBOTICS
+                ]</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="members.html" class="nav-btn" data-en="Members" data-ar="الأعضاء">Members</a>
+            <a href="howtostart.html" class="nav-btn" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+            <a href="aboutrobotics.html" class="nav-btn" data-en="About Robotics" data-ar="عن الروبوتات">About
+                Robotics</a>
+            <a href="achievements.html" class="nav-btn" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+            <div class="dropdown active" id="decodeDropdown">
+                <button class="nav-btn dropdown-toggle">
+                    <span data-en="Decode" data-ar="تحليل">Decode</span>
+                    <i class="fas fa-chevron-down" class="dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                            data-ar="التوعية">Outreach</span></a>
+                    <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                            data-ar="روبوتاتنا">Our Robots</span></a>
+                    <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                            data-ar="كيف تتعلم">How to Learn</span></a>
+                </div>
+            </div>
+
+            <a href="contact.html" class="nav-btn" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="meeting.html" class="nav-btn" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+            <button class="lang-btn" id="languageToggle">Arabic</button>
+        </div>
+
+        <div class="hamburger-container">
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="members.html" data-en="Members" data-ar="الأعضاء">Members</a>
+        <a href="howtostart.html" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+        <a href="aboutrobotics.html" data-en="About Robotics" data-ar="عن الروبوتات">About Robotics</a>
+        <a href="achievements.html" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+        <div class="mobile-dropdown active" id="mobileDecodeDropdown">
+            <div class="mobile-dropdown-header">
+                <span><i class="fas fa-code"></i> &nbsp;Decode</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="mobile-dropdown-menu">
+                <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                        data-ar="التوعية">Outreach</span></a>
+                <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                        data-ar="روبوتاتنا">Our Robots</span></a>
+                <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                        data-ar="كيف تتعلم">How to Learn</span></a>
+            </div>
+        </div>
+
+        <a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="meeting.html" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+
+        <button class="mobile-lang-btn" id="mobileLanguageToggle">
+            <i class="fas fa-globe"></i> <span>Arabic</span>
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="details-wrapper">
+            <a href="our-robots.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span data-en="BACK_TO_CORE" data-ar="العودة_للنظام">BACK_TO_CORE</span>
+            </a>
+
+            <header class="code-header" data-aos="fade-down">
+                <div class="code-subtitle">V3 · Final Generation</div>
+                <h1 class="code-title" data-en="Code V3 - Precision Programming" data-ar="برمجة V3 - برمجة دقيقة">Code
+                    V3 - Precision Programming</h1>
+                <p style="color:var(--mid-green); margin-top:1rem; font-family:var(--font-mono);">
+                    From sensors to calculations - The evolution of precision in V3
+                </p>
+            </header>
+
+            <section class="code-section" data-aos="fade-up">
+                <span class="section-label">// CONTROL_SYSTEM</span>
+                <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Tele-Op Control V3"
+                        data-ar="التحكم عن بعد V3">Tele-Op Control V3</span></h2>
+                <div class="highlight-box">
+                    <p data-en="Transitioned to a calculation-based system instead of sensors: Completely removed the Sorter + Push Servo and replaced them with a Gate System that only opens when the shooter reaches the required RPM."
+                        data-ar="انتقلنا إلى نظام يعتمد على الحسابات بدلاً من الحساسات: تمت إزالة الـ Sorter ومحرك الدفع بالكامل واُستبدلا بنظام بوابة يفتح فقط عندما يصل المطلق إلى السرعة المطلوبة.">
+                        Transitioned to a calculation-based system instead of sensors: Completely removed the Sorter +
+                        Push Servo and replaced them with a Gate System that only opens when the shooter reaches the
+                        required RPM.
+                    </p>
+                    <p style="margin-top:1rem; color:var(--mid-green);"
+                        data-en="Used Odometry to accurately calculate the robot's position and distance to target using (x, y) coordinates."
+                        data-ar="استخدمنا نظام الأودومتري لحساب موقع الروبوت والمسافة إلى الهدف بدقة باستخدام إحداثيات (x, y).">
+                        Used Odometry to accurately calculate the robot's position and distance to the target using (x,
+                        y) coordinates.
+                    </p>
+                </div>
+
+                <div class="code-block"
+                    style="background: var(--dark-green); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--matrix-green); font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem; overflow-x: auto;">
+                    <span class="js-comment">// GateSystem.java logic</span><br>
+                    <span class="js-keyword">if</span> (<span class="js-variable">shooterRPM</span> >= <span
+                        class="js-variable">REQUIRED_RPM</span>) {<br>
+                    &nbsp;&nbsp;<span class="js-variable">gate</span>.<span class="js-function">setPosition</span>(<span
+                        class="js-variable">GATE_OPEN</span>);<br>
+                    } <span class="js-keyword">else</span> {<br>
+                    &nbsp;&nbsp;<span class="js-variable">gate</span>.<span class="js-function">setPosition</span>(<span
+                        class="js-variable">GATE_CLOSED</span>);<br>
+                    }
+                </div>
+            </section>
+
+            <section class="code-section" data-aos="fade-up">
+                <span class="section-label">// AUTO_PERFORMANCE</span>
+                <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Autonomous Performance V3"
+                        data-ar="الأداء المستقل V3">Autonomous Performance V3</span>
+                </h2>
+                <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                    <div style="flex: 1;">
+                        <div class="tech-grid" style="grid-template-columns: 1fr; margin-bottom: 1.5rem;">
+                            <div class="content-block">
+                                <div class="block-title">Execution Metrics</div>
+                                <ul class="tech-list" style="margin-bottom:1rem;">
+                                    <li>Constant RPM even with multiple ball launches</li>
+                                    <li>Ability to launch 3 balls at once</li>
+                                    <li>No speed loss during sequential shots</li>
+                                </ul>
+                                <div class="stat-badge">17 Balls per cycle</div>
+                                <div class="stat-badge">3 Simultaneous shots</div>
+                            </div>
+                            <div class="content-block">
+                                <div class="block-title">PID Implementation</div>
+                                <p style="font-size:0.85rem; line-height:1.5; color:rgba(0, 255, 65, 0.7);">
+                                    A PID (Proportional-Integral-Derivative) controller maintains constant RPM. It
+                                    relies on
+                                    three coefficients: Kp (current error), Ki (accumulated errors), and Kd (rate of
+                                    change).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="code-block"
+                            style="background: var(--dark-green); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--matrix-green); font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; margin-bottom: 0; overflow-x: auto;">
+                            <span class="js-comment">// PIDController.java implementation</span><br>
+                            <span class="js-variable">error</span> = <span class="js-variable">setpoint</span> - <span
+                                class="js-variable">current</span>;<br>
+                            <span class="js-variable">integral</span> += <span class="js-variable">error</span>;<br>
+                            <span class="js-variable">derivative</span> = <span class="js-variable">error</span> - <span
+                                class="js-variable">previousError</span>;<br>
+                            <span class="js-variable">output</span> = <span class="js-variable">kP</span> * <span
+                                class="js-variable">error</span> + <span class="js-variable">kI</span> * <span
+                                class="js-variable">integral</span> + <span class="js-variable">kD</span> * <span
+                                class="js-variable">derivative</span>;<br>
+                            <span class="js-variable">previousError</span> = <span class="js-variable">error</span>;
+                        </div>
+                    </div>
+
+                    <div style="flex: 1;" data-aos="fade-left">
+                        <div class="side-by-side-image">
+                            <img src="autonmouspathv3.png" alt="V3 Autonomous Path">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="code-section" data-aos="fade-up">
+                <span class="section-label">// NAVIGATION_AND_TRACKING</span>
+                <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Aiming + Tracking"
+                        data-ar="التوجيه والتتبع">Aiming + Tracking</span></h2>
+                <p style="color:rgba(0, 255, 65, 0.85); margin-bottom:1.5rem;"
+                    data-en="Integrates Odometry with precise mathematical equations to calculate the aiming angle and shooter speed based on the robot and target positions."
+                    data-ar="يدمج الأودومتري مع معادلات رياضية دقيقة لحساب زاوية التوجيه وسرعة المطلق بناءً على مواقع الروبوت والهدف.">
+                    The aiming and tracking system in V3 relies on integrating Odometry with precise mathematical
+                    equations to calculate the aiming angle and shooter speed based on the robot and target positions.
+                </p>
+
+                <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                    <div style="flex: 1;">
+                        <div class="tech-list" style="margin-bottom:2rem;">
+                            <li>±0.5° Aiming accuracy</li>
+                            <li>50Hz Update rate</li>
+                            <li>Dynamic aiming while moving</li>
+                        </div>
+
+                        <div class="code-block"
+                            style="background: var(--dark-green); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--matrix-green); font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; margin-bottom: 0; overflow-x: auto;">
+                            <span class="js-comment">// DynamicAiming.java calculation</span><br>
+                            <span class="js-variable">dx</span> = <span class="js-variable">targetPose</span>.<span
+                                class="js-function">getX</span>() - <span class="js-variable">robotPose</span>.<span
+                                class="js-function">getX</span>();<br>
+                            <span class="js-variable">dy</span> = <span class="js-variable">targetPose</span>.<span
+                                class="js-function">getY</span>() - <span class="js-variable">robotPose</span>.<span
+                                class="js-function">getY</span>();<br>
+                            <span class="js-variable">targetAngle</span> = <span class="js-numeric">Math</span>.<span
+                                class="js-function">atan2</span>(<span class="js-variable">dy</span>, <span
+                                class="js-variable">dx</span>);<br>
+                            <span class="js-variable">turretAngle</span> = <span class="js-variable">targetAngle</span>
+                            - <span class="js-variable">robotPose</span>.<span class="js-function">getHeading</span>();
+                        </div>
+                    </div>
+
+                    <div style="flex: 1;" data-aos="fade-left">
+                        <div class="video-grid" style="grid-template-columns: 1fr; margin-top: 0;">
+                            <div class="video-card">
+                                <div class="video-wrapper">
+                                    <video controls preload="metadata" muted>
+                                        <source src="v3automousvideo.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-title" data-en="V3 Autonomous Run"
+                                    data-ar="اختبار النظام المستقل الاصدار الثالث">V3 Autonomous Run</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>

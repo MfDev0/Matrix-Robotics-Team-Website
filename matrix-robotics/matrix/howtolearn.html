@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Matrix - How to Learn" data-ar="ماتريكس - كيف تتعلم">Matrix - How to Learn</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Tajawal:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="matrix-theme.css">
+    <script src="matrix-theme.js" defer></script>
+    <style>
+        .learn-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .resource-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .resource-section:hover {
+            border-color: var(--matrix-green);
+            box-shadow: var(--glow);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--matrix-green);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--dark-green);
+            padding-bottom: 0.5rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--dark-green);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.2s;
+        }
+
+        .resource-card:hover {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: var(--matrix-green);
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+            color: var(--matrix-green);
+        }
+
+        .resource-info h4 {
+            color: var(--matrix-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-meta {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--mid-green);
+            margin-bottom: 1rem;
+        }
+
+        .watch-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #121212;
+            background: var(--matrix-green);
+            padding: 8px 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .watch-btn:hover {
+            box-shadow: var(--glow);
+            transform: scale(1.05);
+        }
+
+        .workshop-box {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px dashed var(--matrix-green);
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--matrix-green);
+            text-shadow: var(--glow-strong);
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                margin: 2.5rem 0 1.5rem;
+            }
+
+            .learn-content {
+                padding: 1rem;
+                gap: 2rem;
+            }
+
+            .resource-section {
+                padding: 1.5rem;
+                overflow: hidden;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+                justify-content: center;
+                text-align: center;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workshop-box {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: clamp(1.2rem, 6vw, 1.6rem);
+                letter-spacing: 2px;
+                padding: 0 0.5rem;
+                word-break: break-word;
+            }
+
+            .resource-card {
+                padding: 1.25rem;
+                align-items: center;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .resource-info h4 {
+                font-size: 1.1rem;
+                word-break: break-word;
+            }
+
+            .resource-icon {
+                font-size: 1.8rem;
+            }
+        }
+
+        .page-wrapper {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-text">
+            <img class="logo-img" src="images/511274287_122104813238922635_683980615426849311_n%20%281%29.jpg"
+                alt="Matrix Logo">
+            <span class="logo-label" data-en="[ MATRIX_ROBOTICS ]" data-ar="[ ماتريكس_للروبوتات ]">[ MATRIX_ROBOTICS
+                ]</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="members.html" class="nav-btn" data-en="Members" data-ar="الأعضاء">Members</a>
+            <a href="howtostart.html" class="nav-btn" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+            <a href="aboutrobotics.html" class="nav-btn" data-en="About Robotics" data-ar="عن الروبوتات">About
+                Robotics</a>
+            <a href="achievements.html" class="nav-btn" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+            <div class="dropdown active" id="decodeDropdown">
+                <button class="nav-btn dropdown-toggle">
+                    <span data-en="Decode" data-ar="تحليل">Decode</span>
+                    <i class="fas fa-chevron-down" class="dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                            data-ar="التوعية">Outreach</span></a>
+                    <a href="our-robots.html"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                            data-ar="روبوتاتنا">Our Robots</span></a>
+                    <a href="howtolearn.html" class="active"><i class="fas fa-graduation-cap"></i> <span
+                            data-en="How to Learn" data-ar="كيف تتعلم">How to Learn</span></a>
+                </div>
+            </div>
+
+            <a href="contact.html" class="nav-btn" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="meeting.html" class="nav-btn" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+            <button class="lang-btn" id="languageToggle">Arabic</button>
+        </div>
+
+        <div class="hamburger-container">
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="members.html" data-en="Members" data-ar="الأعضاء">Members</a>
+        <a href="howtostart.html" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+        <a href="aboutrobotics.html" data-en="About Robotics" data-ar="عن الروبوتات">About Robotics</a>
+        <a href="achievements.html" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+        <div class="mobile-dropdown active" id="mobileDecodeDropdown">
+            <div class="mobile-dropdown-header">
+                <span><i class="fas fa-code"></i> &nbsp;Decode</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="mobile-dropdown-menu">
+                <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                        data-ar="التوعية">Outreach</span></a>
+                <a href="our-robots.html"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                        data-ar="روبوتاتنا">Our Robots</span></a>
+                <a href="howtolearn.html" class="active"><i class="fas fa-graduation-cap"></i> <span
+                        data-en="How to Learn" data-ar="كيف تتعلم">How to Learn</span></a>
+            </div>
+        </div>
+
+        <a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="meeting.html" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+
+        <button class="mobile-lang-btn" id="mobileLanguageToggle">
+            <i class="fas fa-globe"></i> <span>Arabic</span>
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header">
+            <h1 class="page-title" data-en="UPLINK_RESOURCES" data-ar="موارد_التحميل">UPLINK_RESOURCES</h1>
+            <p style="color:var(--mid-green); font-family:var(--font-mono); font-size: 0.9rem;"
+                data-en="// DOWNLOADING KNOWLEDGE BASE..." data-ar="// تحميل قاعدة المعرفة...">// DOWNLOADING KNOWLEDGE
+                BASE...</p>
+        </div>
+
+        <div class="learn-content">
+            <section class="resource-section" data-aos="fade-up">
+                <h3 class="section-title"><i class="fas fa-chalkboard-teacher"></i> <span data-en="IN_PERSON_TRAINING"
+                        data-ar="التدريب_الحضوري">IN_PERSON_TRAINING</span></h3>
+                <p data-en="Matrix periodically organizes intensive 2-month training workshops. You will learn robot mechanics, 3D design (CAD), and professional programming (Java/Blocks). Successful graduates may join the core team."
+                    data-ar="ينظم فريق ماتريكس دورياً ورش عمل تدريبية مكثفة لمدة شهرين. ستتعلم ميكانيكا الروبوت، التصميم ثلاثي الأبعاد (CAD)، والبرمجة الاحترافية (Java/Blocks). الخريجون المتفوقون قد ينضمون للفريق الأساسي.">
+                    Matrix periodically organizes intensive 2-month training workshops. You will learn robot mechanics,
+                    3D design (CAD), and professional programming (Java/Blocks). Successful graduates may join the core
+                    team.</p>
+                <div class="workshop-box">
+                    <p data-en="STATUS: SIGNAL_DETECTED // NEXT SESSION LOADING..."
+                        data-ar="الحالة: تم اكتشاف إشارة // الجلسة القادمة قيد التحميل...">STATUS: SIGNAL_DETECTED //
+                        NEXT SESSION LOADING...</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScHBl1nIjJ2LQT00ZkSGgFt--NaPYPNisC2FKl8_BMbyet_CA/viewform"
+                        target="_blank" class="nav-btn active" style="margin-top: 1rem;" data-en="REGISTER_INTEREST"
+                        data-ar="تسجيل_الاهتمام">REGISTER_INTEREST</a>
+                </div>
+            </section>
+
+
+            <section class="resource-section" data-aos="fade-up">
+                <h3 class="section-title"><i class="fas fa-code"></i> <span data-en="PROGRAMMING_MODULES"
+                        data-ar="وحدات_البرمجة">PROGRAMMING_MODULES</span></h3>
+                <div class="resource-grid">
+                    <!-- Java Blocks Episodes -->
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 1" data-ar="جافا بلوكس ح1">Java Blocks Ep 1</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/16ec2RT4xa/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_01</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 2" data-ar="جافا بلوكس ح2">Java Blocks Ep 2</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/18sickBWMc/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_02</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 3" data-ar="جافا بلوكس ح3">Java Blocks Ep 3</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/1CUrhNTRna/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_03</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 4" data-ar="جافا بلوكس ح4">Java Blocks Ep 4</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/14FKfXo9ctt/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_04</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 5" data-ar="جافا بلوكس ح5">Java Blocks Ep 5</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/1DkZcuACWX/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_05</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 6" data-ar="جافا بلوكس ح6">Java Blocks Ep 6</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/1GaEH1tQLW/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_06</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 7" data-ar="جافا بلوكس ح7">Java Blocks Ep 7</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/1GQXWX47BU/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_07</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 8" data-ar="جافا بلوكس ح8">Java Blocks Ep 8</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/1JhmWwHXkQ/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_08</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 9" data-ar="جافا بلوكس ح9">Java Blocks Ep 9</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/16iVMtmgJN/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_09</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-puzzle-piece"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java Blocks Ep 10" data-ar="جافا بلوكس ح10">Java Blocks Ep 10</h4>
+                            <div class="resource-meta">Facebook Video</div>
+                            <a href="https://www.facebook.com/share/v/15Q9PYwFLw/?mibextid=wwXIfr" target="_blank"
+                                class="watch-btn">WATCH_LINK_10</a>
+                        </div>
+                    </div>
+
+                    <!-- Java Text Based -->
+                    <div class="resource-card">
+                        <i class="resource-icon fab fa-java"></i>
+                        <div class="resource-info">
+                            <h4 data-en="Java for FTC" data-ar="الجافا لمسابقة FTC">Java for FTC (English)</h4>
+                            <div class="resource-meta">Playlist // ~10 hours</div>
+                            <a href="https://www.youtube.com/playlist?list=PLRHdgFNRLyaPiZ5rvINwMmGMHEIL9usla"
+                                target="_blank" class="watch-btn">ACCESS_FILES</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resource-section" data-aos="fade-up">
+                <h3 class="section-title"><i class="fas fa-cube"></i> <span data-en="ENGINEERING_&_CAD"
+                        data-ar="الهندسة_والتصميم">ENGINEERING_&_CAD</span></h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-drafting-pencil"></i>
+                        <div class="resource-info">
+                            <h4>Onshape Tutorial</h4>
+                            <div class="resource-meta">Playlist (English)</div>
+                            <a href="https://www.youtube.com/playlist?list=PLxmrkna-ixrIQmsPR3MITi4Ru1bnMH4-l"
+                                target="_blank" class="watch-btn">DOWNLOAD_DATA</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-vector-square"></i>
+                        <div class="resource-info">
+                            <h4>Fusion 360 FTC</h4>
+                            <div class="resource-meta">Playlist (English)</div>
+                            <a href="https://www.youtube.com/playlist?list=PLLm7Yjr9z_z07ohtjFGkA5w-j_NMj8B3J"
+                                target="_blank" class="watch-btn">DOWNLOAD_DATA</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resource-section" data-aos="fade-up">
+                <h3 class="section-title"><i class="fas fa-palette"></i> <span data-en="GRAPHIC_DESIGN"
+                        data-ar="التصميم_الجرافيكي">GRAPHIC_DESIGN</span></h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-pen-nib"></i>
+                        <div class="resource-info">
+                            <h4>Canva تصميم بالعربي</h4>
+                            <div class="resource-meta">Playlist (Arabic)</div>
+                            <a href="https://www.youtube.com/playlist?list=PLs-hceiryD_gbo46gGM7Gz3yJVAHu-CP7"
+                                target="_blank" class="watch-btn">DOWNLOAD_DATA</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-paint-brush"></i>
+                        <div class="resource-info">
+                            <h4>Canva for Beginners</h4>
+                            <div class="resource-meta">Playlist (English)</div>
+                            <a href="https://www.youtube.com/playlist?list=PLr0AH9BnVNJMg_BPSiqKxpamzx2lJ6KUg"
+                                target="_blank" class="watch-btn">DOWNLOAD_DATA</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resource-section" data-aos="fade-up">
+                <h3 class="section-title"><i class="fas fa-tools"></i> <span data-en="BUILDING_&_MECHANICS"
+                        data-ar="البناء_والميكانيكا">BUILDING_&_MECHANICS</span></h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <i class="resource-icon fas fa-robot"></i>
+                        <div class="resource-info">
+                            <h4>REV DUO Class Bot</h4>
+                            <div class="resource-meta">Playlist (English)</div>
+                            <a href="https://youtube.com/playlist?list=PLFAaHLNVWKvxvoBzEdQ7iBHdni1KPFQ_U&si=V7FrTg47CTOWFXuE"
+                                target="_blank" class="watch-btn">DOWNLOAD_DATA</a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <i class="resource-icon fab fa-youtube"></i>
+                        <div class="resource-info">
+                            <h4>BroganM Pratt</h4>
+                            <div class="resource-meta">FTC Tutorials // 50+ Vids</div>
+                            <a href="https://www.youtube.com/@BroganMPratt" target="_blank"
+                                class="watch-btn">ACCESS_CHANNEL</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding-bottom: 4rem;">
+        </div>
+    </div>
+</body>
+
+</html>
