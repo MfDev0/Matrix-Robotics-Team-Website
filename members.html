@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Matrix - Team" data-ar="ماتريكس - الأعضاء">Matrix - Team</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Tajawal:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="matrix-theme.css">
+    <script src="matrix-theme.js" defer></script>
+    <style>
+        .page-header {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            padding: 0 1rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--matrix-green);
+            text-shadow: var(--glow-strong);
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--matrix-green);
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-family: var(--font-mono);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .members-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-wrapper {
+            margin-bottom: 4rem;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .member-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card:hover {
+            border-color: var(--matrix-green);
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
+        }
+
+        .member-icons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--mid-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--matrix-green);
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .icon-circle {
+            background: var(--matrix-green);
+            color: var(--bg-black);
+            border-color: var(--matrix-green);
+            box-shadow: var(--glow);
+        }
+
+        .leader-icon {
+            font-size: 3rem;
+            color: var(--matrix-green);
+            margin-bottom: 1rem;
+            text-shadow: var(--glow);
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--matrix-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .member-role {
+            font-size: 0.9rem;
+            color: rgba(0, 255, 65, 0.7);
+            line-height: 1.6;
+            font-family: var(--font-mono);
+            font-weight: 700;
+        }
+
+        body.ar .member-role {
+            font-weight: 800;
+            font-family: var(--font-ar) !important;
+        }
+
+        .member-box.leader-box {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                margin: 2.5rem 0 1.5rem;
+            }
+
+            .members-container {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin: 2rem 0 1.5rem;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .member-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: clamp(1.2rem, 6vw, 1.8rem);
+                letter-spacing: 2px;
+                padding: 0 1rem;
+                word-break: break-word;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+
+            .member-name {
+                font-size: 1.2rem;
+            }
+
+            .icon-circle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .page-wrapper {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-text">
+            <img class="logo-img" src="images/511274287_122104813238922635_683980615426849311_n%20%281%29.jpg"
+                alt="Matrix Logo">
+            <span class="logo-label" data-en="[ MATRIX_ROBOTICS ]" data-ar="[ ماتريكس_للروبوتات ]">[ MATRIX_ROBOTICS
+                ]</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="members.html" class="nav-btn active" data-en="Members" data-ar="الأعضاء">Members</a>
+            <a href="howtostart.html" class="nav-btn" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+            <a href="aboutrobotics.html" class="nav-btn" data-en="About Robotics" data-ar="عن الروبوتات">About
+                Robotics</a>
+            <a href="achievements.html" class="nav-btn" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+            <div class="dropdown" id="decodeDropdown">
+                <button class="nav-btn dropdown-toggle">
+                    <span data-en="Decode" data-ar="تحليل">Decode</span>
+                    <i class="fas fa-chevron-down" class="dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                            data-ar="التوعية">Outreach</span></a>
+                    <a href="our-robots.html"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                            data-ar="روبوتاتنا">Our Robots</span></a>
+                    <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                            data-ar="كيف تتعلم">How to Learn</span></a>
+                </div>
+            </div>
+
+            <a href="contact.html" class="nav-btn" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="meeting.html" class="nav-btn" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+            <button class="lang-btn" id="languageToggle">Arabic</button>
+        </div>
+
+        <div class="hamburger-container">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="members.html" class="active" data-en="Members" data-ar="الأعضاء">Members</a>
+        <a href="howtostart.html" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+        <a href="aboutrobotics.html" data-en="About Robotics" data-ar="عن الروبوتات">About Robotics</a>
+        <a href="achievements.html" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+        <div class="mobile-dropdown" id="mobileDecodeDropdown">
+            <div class="mobile-dropdown-header">
+                <span><i class="fas fa-code"></i> &nbsp;Decode</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="mobile-dropdown-menu">
+                <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                        data-ar="التوعية">Outreach</span></a>
+                <a href="our-robots.html"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                        data-ar="روبوتاتنا">Our Robots</span></a>
+                <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                        data-ar="كيف تتعلم">How to Learn</span></a>
+            </div>
+        </div>
+
+        <a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="meeting.html" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+
+        <button class="mobile-lang-btn" id="mobileLanguageToggle">
+            <i class="fas fa-globe"></i> <span>Arabic</span>
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header">
+            <h1 class="page-title" data-en="TEAM_MEMBERS" data-ar="أعضاء_الفريق">TEAM_MEMBERS</h1>
+            <p style="color:var(--mid-green); font-family:var(--font-mono); font-size: 0.9rem;"
+                data-en="// INITIALIZING PERSONNEL DATABASE..." data-ar="// جاري تهيئة قاعدة بيانات الأفراد...">//
+                INITIALIZING PERSONNEL DATABASE...</p>
+        </div>
+
+        <div class="members-container">
+            <section id="mentors" class="section-wrapper">
+                <h2 class="section-title" data-en="MENTORS" data-ar="القادة">MENTORS</h2>
+                <div class="member-card leader-box">
+                    <div class="leader-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="member-name" data-en="MARIAM" data-ar="مريم">MARIAM</h3>
+                    <p class="member-role" data-en="Team Leader // Programming // Strategy"
+                        data-ar="قائدة الفريق // البرمجة // الإستراتيجية">
+                        Team Leader // Programming // Strategy
+                    </p>
+                </div>
+            </section>
+
+            <section id="members" class="section-wrapper">
+                <h2 class="section-title" data-en="ACTIVE_UNITS" data-ar="الوحدات_النشطة">ACTIVE_UNITS</h2>
+                <div class="members-grid">
+                    <!-- Member cards -->
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-terminal"></i></div>
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="AHMED" data-ar="أحمد">AHMED</h3>
+                        <p class="member-role" data-en="Design & Building // Programming // Team Player"
+                            data-ar="التصميم والبناء // البرمجة // لاعب فريق">
+                            Design & Building // Programming // Team Player
+                        </p>
+                    </div>
+
+
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-terminal"></i></div>
+                            <div class="icon-circle"><i class="fas fa-screwdriver-wrench"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="LAITH" data-ar="ليث">LAITH</h3>
+                        <p class="member-role" data-en="Programming // Building & Design // Problem Solver"
+                            data-ar="البرمجة // البناء والتصميم // حلال مشاكل">
+                            Programming // Building & Design // Problem Solver
+                        </p>
+                    </div>
+
+
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-terminal"></i></div>
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="M. SWISSI" data-ar="محمد سويسي">M. SWISSI</h3>
+                        <p class="member-role" data-en="Programming // Building & Design // Creative Thinker"
+                            data-ar="البرمجة // البناء والتصميم // مفكر مبدع">
+                            Programming // Building & Design // Creative Thinker
+                        </p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="MOKHTAR" data-ar="مختار">MOKHTAR</h3>
+                        <p class="member-role" data-en="Media Production // Content Creator"
+                            data-ar="الإنتاج الإعلامي // صانع محتوى">
+                            Media Production // Content Creator
+                        </p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                            <div class="icon-circle"><i class="fas fa-video"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="SIREEN" data-ar="سيرين">SIREEN</h3>
+                        <p class="member-role" data-en="Design & UX // Artistics"
+                            data-ar="التصميم وتجربة المستخدم // الفنون">
+                            Design & UX // Artistics
+                        </p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                            <div class="icon-circle"><i class="fas fa-video"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="ENAS" data-ar="إيناس">ENAS</h3>
+                        <p class="member-role" data-en="Building // Design // Detail Oriented"
+                            data-ar="البناء // التصميم // منتبه للتفاصيل">
+                            Building // Design // Detail Oriented
+                        </p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                            <div class="icon-circle"><i class="fas fa-video"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="YARA" data-ar="يارا">YARA</h3>
+                        <p class="member-role" data-en="Creative Design // Building" data-ar="التصميم المبدع // البناء">
+                            Creative Design // Building
+                        </p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-video"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="MONERA" data-ar="منيرة">MONERA</h3>
+                        <p class="member-role" data-en="Media & Outreach // Communication"
+                            data-ar="الإعلام والتوعية // الاتصال">
+                            Media & Outreach // Communication
+                        </p>
+                    </div>
+
+                    <div class="member-card" id="mfares">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-terminal"></i></div>
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="M. FARES" data-ar="محمد فارس">M. FARES</h3>
+                        <p class="member-role" data-en="Programming // Tech Enthusiast"
+                            data-ar="البرمجة // مهتم بالتكنولوجيا">
+                            Programming // Tech Enthusiast
+                        </p>
+                    </div>
+
+                    <div class="member-card" id="adam-card" style="display: none;">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="ADAM" data-ar="آدم">ADAM</h3>
+                        <p class="member-role" data-en="Building // Mechanics" data-ar="البناء // الميكانيكا">
+                            Building // Mechanics
+                        </p>
+                    </div>
+
+                    <div class="member-card" id="malawer-card" style="display: none;">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="M. ALAWER" data-ar="محمد العاير">M. ALAWER</h3>
+                        <p class="member-role" data-en="Building // Precision Work" data-ar="البناء // عمل دقيق">
+                            Building // Precision Work
+                        </p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-icons">
+                            <div class="icon-circle"><i class="fas fa-tools"></i></div>
+                        </div>
+                        <h3 class="member-name" data-en="M. SAAD" data-ar="محمد سعد">M. SAAD</h3>
+                        <p class="member-role" data-en="Building // Quality Focus"
+                            data-ar="البناء // التركيز على الجودة">
+                            Building // Quality Focus
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding-bottom: 4rem;">
+        </div>
+    </div>
+
+    <!-- Easter Egg Script -->
+    <script>
+        const mfares = document.getElementById('mfares');
+        const adamCard = document.getElementById('adam-card');
+        const malawerCard = document.getElementById('malawer-card');
+        let clickCount = 0;
+        let eggUnlocked = false;
+
+        if (mfares) {
+            mfares.addEventListener('click', () => {
+                if (eggUnlocked) return;
+                clickCount++;
+                if (clickCount >= 10) {
+                    alert('LEGENDS NEVER DIE : ADAM , M.ALAWER');
+                    if (adamCard) adamCard.style.display = 'flex';
+                    if (malawerCard) malawerCard.style.display = 'flex';
+                    eggUnlocked = true;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

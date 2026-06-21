@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Matrix - About Robotics" data-ar="ماتريكس - عن الروبوتات">Matrix - About Robotics</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Tajawal:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="matrix-theme.css">
+    <script src="matrix-theme.js" defer></script>
+    <style>
+        .robotics-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .content-box {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .content-box:hover {
+            border-color: var(--matrix-green);
+            box-shadow: var(--glow);
+        }
+
+        .content-box h3 {
+            font-size: 2rem;
+            color: var(--matrix-green);
+            margin-bottom: 2rem;
+            text-shadow: var(--glow);
+            border-bottom: 1px solid var(--dark-green);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .content-box p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(0, 255, 65, 0.9);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(0, 40, 0, 0.2);
+            border: 1px solid var(--dark-green);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: var(--matrix-green);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h4 {
+            color: var(--matrix-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .competitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .comp-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .comp-card:hover {
+            border-color: var(--matrix-green);
+            box-shadow: var(--glow);
+        }
+
+        .comp-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comp-icon {
+            font-size: 2rem;
+            color: var(--matrix-green);
+        }
+
+        .comp-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--mid-green);
+            border: 1px solid var(--mid-green);
+            padding: 2px 6px;
+        }
+
+        .comp-link {
+            display: inline-block;
+            margin-top: auto;
+            color: var(--matrix-green);
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 1px solid var(--matrix-green);
+            padding: 5px 10px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .comp-link:hover {
+            background: var(--matrix-green);
+            color: var(--bg-black);
+        }
+
+        .team-goals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .goal-item {
+            border-left: 2px solid var(--matrix-green);
+            padding-left: 1rem;
+        }
+
+        .goal-item h5 {
+            color: var(--matrix-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--matrix-green);
+            text-shadow: var(--glow-strong);
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                margin: 2.5rem 0 1.5rem;
+            }
+
+            .robotics-content {
+                padding: 1rem;
+                gap: 2.5rem;
+            }
+
+            .content-box {
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .content-box h3 {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+                display: block;
+            }
+
+            .feature-grid,
+            .competitions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comp-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: clamp(1.2rem, 6vw, 1.8rem);
+                letter-spacing: 2px;
+                padding: 0 1rem;
+                word-break: break-word;
+            }
+
+            .feature-card .icon {
+                font-size: 2rem;
+            }
+
+            .team-goals {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .page-wrapper {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-text">
+            <img class="logo-img" src="images/511274287_122104813238922635_683980615426849311_n%20%281%29.jpg"
+                alt="Matrix Logo">
+            <span class="logo-label" data-en="[ MATRIX_ROBOTICS ]" data-ar="[ ماتريكس_للروبوتات ]">[ MATRIX_ROBOTICS
+                ]</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="members.html" class="nav-btn" data-en="Members" data-ar="الأعضاء">Members</a>
+            <a href="howtostart.html" class="nav-btn" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+            <a href="aboutrobotics.html" class="nav-btn active" data-en="About Robotics" data-ar="عن الروبوتات">About
+                Robotics</a>
+            <a href="achievements.html" class="nav-btn" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+            <div class="dropdown" id="decodeDropdown">
+                <button class="nav-btn dropdown-toggle">
+                    <span data-en="Decode" data-ar="تحليل">Decode</span>
+                    <i class="fas fa-chevron-down" class="dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                            data-ar="التوعية">Outreach</span></a>
+                    <a href="our-robots.html"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                            data-ar="روبوتاتنا">Our Robots</span></a>
+                    <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                            data-ar="كيف تتعلم">How to Learn</span></a>
+                </div>
+            </div>
+
+            <a href="contact.html" class="nav-btn" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="meeting.html" class="nav-btn" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+            <button class="lang-btn" id="languageToggle">Arabic</button>
+        </div>
+
+        <div class="hamburger-container">
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="members.html" data-en="Members" data-ar="الأعضاء">Members</a>
+        <a href="howtostart.html" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+        <a href="aboutrobotics.html" class="active" data-en="About Robotics" data-ar="عن الروبوتات">About Robotics</a>
+        <a href="achievements.html" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+        <div class="mobile-dropdown" id="mobileDecodeDropdown">
+            <div class="mobile-dropdown-header">
+                <span><i class="fas fa-code"></i> &nbsp;Decode</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="mobile-dropdown-menu">
+                <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                        data-ar="التوعية">Outreach</span></a>
+                <a href="our-robots.html"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                        data-ar="روبوتاتنا">Our Robots</span></a>
+                <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                        data-ar="كيف تتعلم">How to Learn</span></a>
+            </div>
+        </div>
+
+        <a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="meeting.html" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+
+        <button class="mobile-lang-btn" id="mobileLanguageToggle">
+            <i class="fas fa-globe"></i> <span>Arabic</span>
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header">
+            <h1 class="page-title" data-en="ROBOTICS_COORDINATES" data-ar="إحداثيات_الروبوتات">ROBOTICS_COORDINATES</h1>
+            <p style="color:var(--mid-green); font-family:var(--font-mono); font-size: 0.9rem;"
+                data-en="// DOWNLOADING KNOWLEDGE BASE..." data-ar="// جاري تحميل قاعدة المعرفة...">// DOWNLOADING
+                KNOWLEDGE BASE...</p>
+        </div>
+
+        <div class="robotics-content">
+            <section class="content-box" data-aos="fade-up">
+                <h3 data-en="CORE_CONCEPTS" data-ar="المفاهيم_الأساسية">CORE_CONCEPTS</h3>
+                <p data-en="Robotics combines mechanics, electronics, and programming to create machines that can perform tasks autonomously or semi-autonomously."
+                    data-ar="تجمع الروبوتات بين الميكانيكا والإلكترونيات والبرمجة لإنشاء آلات يمكنها أداء المهام بشكل مستقل أو شبه مستقل.">
+                    Robotics combines mechanics, electronics, and programming to create machines that can perform tasks
+                    autonomously or semi-autonomously.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="icon"><i class="fas fa-cogs"></i></span>
+                        <h4 data-en="MECHANICS" data-ar="الميكانيكا">MECHANICS</h4>
+                        <p style="font-size: 0.8rem;" data-en="Physical structure and movement systems"
+                            data-ar="الهيكل المادي وأنظمة الحركة">Physical structure and movement systems</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon"><i class="fas fa-microchip"></i></span>
+                        <h4 data-en="ELECTRONICS" data-ar="الإلكترونيات">ELECTRONICS</h4>
+                        <p style="font-size: 0.8rem;" data-en="Sensors and control systems"
+                            data-ar="أجهزة الاستشعار وأنظمة التحكم">Sensors and control systems</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon"><i class="fas fa-laptop-code"></i></span>
+                        <h4 data-en="PROGRAMMING" data-ar="البرمجة">PROGRAMMING</h4>
+                        <p style="font-size: 0.8rem;" data-en="Code that creates intelligent behavior"
+                            data-ar="الكود الذي يخلق سلوكًا ذكيًا">Code that creates intelligent behavior</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-box" data-aos="fade-up">
+                <h3 data-en="GLOBAL_ARENAS" data-ar="الساحات_العالمية">GLOBAL_ARENAS</h3>
+                <div class="competitions-grid">
+                    <div class="comp-card">
+                        <div class="comp-header">
+                            <span class="comp-icon"><i class="fas fa-robot"></i></span>
+                            <div>
+                                <h4 style="color:var(--matrix-green);" data-en="FTC" data-ar="تحدي FTC">FTC</h4>
+                                <span class="comp-badge">AGES 12-18</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.85rem;"
+                            data-en="FIRST Tech Challenge: Design, build, and program robots for exciting challenges. Focuses on practical engineering and teamwork."
+                            data-ar="تحدي FIRST للتقنية: تصميم وبناء وبرمجة الروبوتات لتحديات مثيرة. يركز على الهندسة العملية والعمل الجماعي.">
+                            FIRST Tech Challenge: Design, build, and program robots for exciting challenges. Focuses on
+                            practical engineering and teamwork.</p>
+                        <a href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="comp-link"
+                            data-en="OFFICIAL_COMMS" data-ar="الاتصال_الرسمي">OFFICIAL_COMMS</a>
+                    </div>
+
+                    <div class="comp-card">
+                        <div class="comp-header">
+                            <span class="comp-icon"><i class="fas fa-industry"></i></span>
+                            <div>
+                                <h4 style="color:var(--matrix-green);" data-en="FRC" data-ar="مسابقة FRC">FRC</h4>
+                                <span class="comp-badge">AGES 14-18</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.85rem;"
+                            data-en="High-intensity competition with larger robots. Teams build industrial-sized robots in six weeks."
+                            data-ar="مسابقة عالية الكثافة بروبوتات أكبر. تبني الفرق روبوتات بحجم صناعي في ستة أسابيع.">
+                            High-intensity competition with larger robots. Teams build industrial-sized robots in six
+                            weeks.</p>
+                        <a href="https://www.firstinspires.org/robotics/frc" target="_blank" class="comp-link"
+                            data-en="OFFICIAL_COMMS" data-ar="الاتصال_الرسمي">OFFICIAL_COMMS</a>
+                    </div>
+
+                    <div class="comp-card">
+                        <div class="comp-header">
+                            <span class="comp-icon"><i class="fas fa-globe"></i></span>
+                            <div>
+                                <h4 style="color:var(--matrix-green);" data-en="WRO" data-ar="أولمبياد WRO">WRO</h4>
+                                <span class="comp-badge">AGES 8-19</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.85rem;"
+                            data-en="World Robot Olympiad: Global competition using LEGO-based robots to solve complex challenges."
+                            data-ar="أولمبياد الروبوت العالمي: مسابقة عالمية تستخدم روبوتات تعتمد على LEGO لحل تحديات معقدة.">
+                            World Robot Olympiad: Global competition using LEGO-based robots to solve complex
+                            challenges.</p>
+                        <a href="https://wro-association.org/" target="_blank" class="comp-link"
+                            data-en="OFFICIAL_COMMS" data-ar="الاتصال_الرسمي">OFFICIAL_COMMS</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-box" data-aos="fade-up">
+                <h3 data-en="TEAM_MISSION" data-ar="مهمة_الفريق">TEAM_MISSION</h3>
+                <div class="team-goals">
+                    <div class="goal-item">
+                        <h5 data-en="LEARN & COMPETE" data-ar="تعلم ونافس">LEARN & COMPETE</h5>
+                        <p style="font-size: 0.8rem;"
+                            data-en="Participate in robotics competitions to gain experience and skills"
+                            data-ar="المشاركة في مسابقات الروبوتات لاكتساب الخبرة والمهارات">Participate in robotics
+                            competitions to gain experience and skills</p>
+                    </div>
+                    <div class="goal-item">
+                        <h5 data-en="SHARE KNOWLEDGE" data-ar="شارك المعرفة">SHARE KNOWLEDGE</h5>
+                        <p style="font-size: 0.8rem;"
+                            data-en="Teach others about robotics and inspire interest in technology"
+                            data-ar="تعليم الآخرين عن الروبوتات وإلهام الاهتمام بالتكنولوجيا">Teach others about
+                            robotics and inspire interest in technology</p>
+                    </div>
+                    <div class="goal-item">
+                        <h5 data-en="BUILD COMMUNITY" data-ar="ابني مجتمع">BUILD COMMUNITY</h5>
+                        <p style="font-size: 0.8rem;"
+                            data-en="Create opportunities for more people to learn about robotics"
+                            data-ar="خلق فرص لمزيد من الأشخاص لتعلم الروبوتات">Create opportunities for more people to
+                            learn about robotics</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding-bottom: 4rem;">
+        </div>
+    </div>
+</body>
+
+</html>

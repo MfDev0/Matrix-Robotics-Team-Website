@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Matrix - Our Robots" data-ar="ماتريكس - روبوتاتنا">Matrix - Our Robots</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Tajawal:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="matrix-theme.css">
+    <script src="matrix-theme.js" defer></script>
+    <style>
+        .robots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .robot-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .robot-card:hover {
+            border-color: var(--matrix-green);
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
+        }
+
+        .robot-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--matrix-green);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .robot-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .robot-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--dark-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .robot-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(0.5) contrast(1.2);
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .robot-card:hover .robot-img img {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .robot-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .robot-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--matrix-green);
+            text-shadow: var(--glow);
+        }
+
+        .robot-version {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--mid-green);
+            padding: 4px 8px;
+            border: 1px solid var(--mid-green);
+        }
+
+        .robot-desc {
+            font-size: 0.9rem;
+            color: rgba(0, 255, 65, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .robot-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn-link {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.75rem;
+            border: 1px solid var(--matrix-green);
+            color: var(--matrix-green);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-link:hover {
+            background: var(--matrix-green);
+            color: var(--bg-black);
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--matrix-green);
+            text-shadow: var(--glow-strong);
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--mid-green);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-text">
+            <img class="logo-img" src="images/511274287_122104813238922635_683980615426849311_n%20%281%29.jpg"
+                alt="Matrix Logo">
+            <span class="logo-label" data-en="[ MATRIX_ROBOTICS ]" data-ar="[ ماتريكس_للروبوتات ]">[ MATRIX_ROBOTICS
+                ]</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="members.html" class="nav-btn" data-en="Members" data-ar="الأعضاء">Members</a>
+            <a href="howtostart.html" class="nav-btn" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+            <a href="aboutrobotics.html" class="nav-btn" data-en="About Robotics" data-ar="عن الروبوتات">About
+                Robotics</a>
+            <a href="achievements.html" class="nav-btn" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+            <div class="dropdown active" id="decodeDropdown">
+                <button class="nav-btn dropdown-toggle">
+                    <span data-en="Decode" data-ar="تحليل">Decode</span>
+                    <i class="fas fa-chevron-down" class="dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                            data-ar="التوعية">Outreach</span></a>
+                    <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                            data-ar="روبوتاتنا">Our Robots</span></a>
+                    <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                            data-ar="كيف تتعلم">How to Learn</span></a>
+                </div>
+            </div>
+
+            <a href="contact.html" class="nav-btn" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="meeting.html" class="nav-btn" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+            <button class="lang-btn" id="languageToggle">Arabic</button>
+        </div>
+
+        <div class="hamburger-container">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="members.html" data-en="Members" data-ar="الأعضاء">Members</a>
+        <a href="howtostart.html" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+        <a href="aboutrobotics.html" data-en="About Robotics" data-ar="عن الروبوتات">About Robotics</a>
+        <a href="achievements.html" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+        <div class="mobile-dropdown active" id="mobileDecodeDropdown">
+            <div class="mobile-dropdown-header">
+                <span><i class="fas fa-code"></i> &nbsp;Decode</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="mobile-dropdown-menu">
+                <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                        data-ar="التوعية">Outreach</span></a>
+                <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                        data-ar="روبوتاتنا">Our Robots</span></a>
+                <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                        data-ar="كيف تتعلم">How to Learn</span></a>
+            </div>
+        </div>
+
+        <a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="meeting.html" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+
+        <button class="mobile-lang-btn" id="mobileLanguageToggle">
+            <i class="fas fa-globe"></i> <span>Arabic</span>
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header">
+            <h1 class="page-title" data-en="SYSTEM_UNITS" data-ar="وحدات_النظام">SYSTEM_UNITS</h1>
+            <p class="page-subtitle" data-en="// EXPLORE THE ARSENAL" data-ar="// استكشف الترسانة">// EXPLORE THE
+                ARSENAL</p>
+        </div>
+
+        <div class="robots-grid">
+            <!-- Robot V3 -->
+            <div class="robot-card" data-aos="fade-up">
+                <div class="robot-img">
+                    <img src="images/v3robot.png" alt="Robot V3" style="transform: scale(1.15);">
+                </div>
+                <div class="robot-title">
+                    <h2 class="robot-name">CRAM_V3</h2>
+                    <span class="robot-version">2025-2026</span>
+                </div>
+                <p class="robot-desc" data-en="Expected to be our latest innovation. Optimized for speed and precision."
+                    data-ar="من المتوقع أن يكون أحدث ابتكاراتنا. مُحسن للسرعة والدقة.">Expected to be our latest
+                    innovation. Optimized for speed and precision.</p>
+                <div class="robot-links">
+                    <a href="cadv3.html" class="btn-link" data-en="[ VIEW CAD ]" data-ar="[ عرض التصميم ]">[ VIEW CAD
+                        ]</a>
+                    <a href="codev3.html" class="btn-link" data-en="[ VIEW CODE ]" data-ar="[ عرض الكود ]">[ VIEW CODE
+                        ]</a>
+                </div>
+            </div>
+
+            <!-- Robot V2 -->
+            <div class="robot-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="robot-img">
+                    <img src="images/v2robot.png" alt="Robot V2">
+                </div>
+                <div class="robot-title">
+                    <h2 class="robot-name">CRAM_V2</h2>
+                    <span class="robot-version">2025-2026</span>
+                </div>
+                <p class="robot-desc" data-en="The reliable unit. Engineered for vertical stability and rapid intake."
+                    data-ar="الوحدة الموثوقة. مصممة للاستقرار العمودي والالتقاط السريع.">The reliable unit. Engineered
+                    for vertical stability and rapid intake.</p>
+                <div class="robot-links">
+                    <a href="cadv2.html" class="btn-link" data-en="[ VIEW CAD ]" data-ar="[ عرض التصميم ]">[ VIEW CAD
+                        ]</a>
+                    <a href="codev2.html" class="btn-link" data-en="[ VIEW CODE ]" data-ar="[ عرض الكود ]">[ VIEW CODE
+                        ]</a>
+                </div>
+            </div>
+
+            <!-- Robot V1 -->
+            <div class="robot-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="robot-img">
+                    <img src="images/v1robot.png" alt="Robot V1">
+                </div>
+                <div class="robot-title">
+                    <h2 class="robot-name">CRAM_V1</h2>
+                    <span class="robot-version">2025-2026</span>
+                </div>
+                <p class="robot-desc" data-en="The first step. The foundation of our journey."
+                    data-ar="الخطوة الأولى. أساس رحلتنا.">The first step. The foundation of our journey.</p>
+                <div class="robot-links">
+                    <a href="cadv1.html" class="btn-link" data-en="[ VIEW CAD ]" data-ar="[ عرض التصميم ]">[ VIEW CAD
+                        ]</a>
+                    <a href="code.html" class="btn-link" data-en="[ VIEW CODE ]" data-ar="[ عرض الكود ]">[ VIEW CODE
+                        ]</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding-bottom: 2rem;">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Matrix - CRAM_V2 CODE" data-ar="ماتريكس - برمجة CRAM_V2">Matrix - CRAM_V2 CODE</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Tajawal:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="matrix-theme.css">
+    <script src="matrix-theme.js" defer></script>
+    <style>
+        .details-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--matrix-green);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            text-shadow: var(--glow);
+            transform: translateX(-5px);
+        }
+
+        .code-header {
+            border-bottom: 1px solid var(--dark-green);
+            padding-bottom: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .code-subtitle {
+            font-family: var(--font-mono);
+            color: var(--mid-green);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-title {
+            font-size: 2.5rem;
+            color: var(--matrix-green);
+            text-shadow: var(--glow);
+        }
+
+        .code-section {
+            margin-bottom: 4rem;
+            background: rgba(0, 255, 65, 0.02);
+            border-left: 2px solid var(--dark-green);
+            padding: 2rem;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            color: var(--mid-green);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--matrix-green);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .code-block {
+            background: #000;
+            border: 1px solid var(--dark-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--matrix-green);
+            line-height: 1.5;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-block::before {
+            content: "SYSTEM_PROCESS_LOG";
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+
+        .highlight-box {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px dashed var(--matrix-green);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--matrix-green);
+        }
+
+        .tech-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .tech-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tech-list li {
+            color: rgba(0, 255, 65, 0.8);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        .tech-list li::before {
+            content: ">";
+            color: var(--matrix-green);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .comp-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 1.5rem;
+        }
+
+        .comp-card h3 {
+            color: var(--matrix-green);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-text">
+            <img class="logo-img" src="images/511274287_122104813238922635_683980615426849311_n%20%281%29.jpg"
+                alt="Matrix Logo">
+            <span class="logo-label" data-en="[ MATRIX_ROBOTICS ]" data-ar="[ ماتريكس_للروبوتات ]">[ MATRIX_ROBOTICS
+                ]</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="members.html" class="nav-btn" data-en="Members" data-ar="الأعضاء">Members</a>
+            <a href="howtostart.html" class="nav-btn" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+            <a href="aboutrobotics.html" class="nav-btn" data-en="About Robotics" data-ar="عن الروبوتات">About
+                Robotics</a>
+            <a href="achievements.html" class="nav-btn" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+            <div class="dropdown active" id="decodeDropdown">
+                <button class="nav-btn dropdown-toggle">
+                    <span data-en="Decode" data-ar="تحليل">Decode</span>
+                    <i class="fas fa-chevron-down" class="dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                            data-ar="التوعية">Outreach</span></a>
+                    <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                            data-ar="روبوتاتنا">Our Robots</span></a>
+                    <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                            data-ar="كيف تتعلم">How to Learn</span></a>
+                </div>
+            </div>
+
+            <a href="contact.html" class="nav-btn" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="meeting.html" class="nav-btn" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+            <button class="lang-btn" id="languageToggle">Arabic</button>
+        </div>
+
+        <div class="hamburger-container">
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="members.html" data-en="Members" data-ar="الأعضاء">Members</a>
+        <a href="howtostart.html" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+        <a href="aboutrobotics.html" data-en="About Robotics" data-ar="عن الروبوتات">About Robotics</a>
+        <a href="achievements.html" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+        <div class="mobile-dropdown active" id="mobileDecodeDropdown">
+            <div class="mobile-dropdown-header">
+                <span><i class="fas fa-code"></i> &nbsp;Decode</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="mobile-dropdown-menu">
+                <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                        data-ar="التوعية">Outreach</span></a>
+                <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                        data-ar="روبوتاتنا">Our Robots</span></a>
+                <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                        data-ar="كيف تتعلم">How to Learn</span></a>
+            </div>
+        </div>
+
+        <a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="meeting.html" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+
+        <button class="mobile-lang-btn" id="mobileLanguageToggle">
+            <i class="fas fa-globe"></i> <span>Arabic</span>
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="details-wrapper">
+            <a href="our-robots.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span data-en="BACK_TO_CORE" data-ar="العودة_للنظام">BACK_TO_CORE</span>
+            </a>
+
+            <header class="code-header" data-aos="fade-down">
+                <div class="code-subtitle">FTC DECODE 2026</div>
+                <h1 class="code-title" data-en="Programming Evolution" data-ar="تطور البرمجة">Programming Evolution</h1>
+                <p style="color:var(--mid-green); margin-top:1rem; font-family:var(--font-mono);">
+                    From V1 to V2 - Camera, Auto Path, and Code Development
+                </p>
+            </header>
+
+            <section class="code-section" data-aos="fade-up">
+                <span class="section-label">// VISION_SYSTEM</span>
+                <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Camera & Vision System"
+                        data-ar="نظام الرؤية والكاميرا">Camera & Vision System</span></h2>
+
+                <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                    <div style="flex: 1;">
+                        <p style="color:rgba(0, 255, 65, 0.85); margin-bottom:1.5rem;"
+                            data-en="We used the Limelight camera for vision and target detection. We programmed it to recognize AprilTags and accurately determine distance. The system sends target coordinates to the controller to adjust turret angle and shooter speed."
+                            data-ar="استخدمنا كاميرا Limelight للرؤية واكتشاف الأهداف. برمجناها للتعرف على AprilTags وتحديد المسافة بدقة. يرسل النظام إحداثيات الهدف إلى وحدة التحكم لضبط زاوية البرج وسرعة المطلق.">
+                            We used the Limelight camera for vision and target detection. We programmed it to recognize
+                            AprilTags and accurately determine distance. The system sends target coordinates to the
+                            controller
+                            to adjust turret angle and shooter speed.
+                        </p>
+
+                        <div class="code-block"
+                            style="background: var(--dark-green); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--matrix-green); font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; overflow-x: auto;">
+                            <span class="js-comment">// LimelightCamera.java</span><br>
+                            - <span class="js-keyword">Stores</span>: <span class="js-variable">targetX</span>, <span
+                                class="js-variable">targetY</span>, <span class="js-variable">targetArea</span><br>
+                            - <span class="js-function">hasTarget</span>(): checks tv entry (1 = target detected)<br>
+                            - <span class="js-function">updateTargetData</span>(): reads tx, ty, ta from network
+                            tables<br>
+                            - <span class="js-function">calculateDistance</span>(): uses [<span
+                                class="js-variable">TARGET_HEIGHT</span> * <span class="js-variable">FOCAL_LENGTH</span>
+                            / <span class="js-variable">targetArea</span>]
+                        </div>
+
+                        <div class="highlight-box">
+                            <strong data-en="Challenge:" data-ar="التحدي:">Challenge:</strong> <span
+                                data-en="Vision latency in low-light conditions."
+                                data-ar="تأخر الرؤية في الإضاءة المنخفضة.">Vision latency in low-light
+                                conditions.</span><br>
+                            <strong data-en="Solution:" data-ar="الحل:">Solution:</strong> <span
+                                data-en="Improved lighting using integrated LEDs and increased the camera update rate to 50Hz."
+                                data-ar="تحسين الإضاءة باستخدام مصابيح LED مدمجة وزيادة معدل تحديث الكاميرا إلى 50 هرتز.">Improved
+                                lighting using integrated LEDs and increased the camera update rate to 50Hz.</span>
+                        </div>
+                    </div>
+
+                    <div style="flex: 1;" data-aos="fade-left">
+                        <div class="video-card" style="width: 100%;">
+                            <div class="video-wrapper">
+                                <video muted controls preload="metadata">
+                                    <source src="v2trackingfailedtest.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="video-title" data-en="Tracking Recovery Test" data-ar="اختبار استعادة التتبع">
+                                Tracking Recovery Test</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="code-section" data-aos="fade-up">
+                <span class="section-label">// AUTONOMOUS_LOGIC</span>
+                <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Autonomous Performance"
+                        data-ar="الأداء المستقل">Autonomous Performance</span></h2>
+                <div class="highlight-box" style="border-style: solid;">
+                    <strong data-en="Auto Path - Pure Pursuit" data-ar="المسار التلقائي - الملاحقة الصرفة">Auto Path -
+                        Pure Pursuit</strong>
+                </div>
+
+                <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                    <div style="flex: 1;">
+                        <div class="comparison-grid">
+                            <div class="comp-card">
+                                <h3 data-en="V1 Auto" data-ar="تلقائي V1">V1 Auto</h3>
+                                <ul class="tech-list" style="grid-template-columns: 1fr;">
+                                    <li>Pedro Pathing between points</li>
+                                    <li>Limelight distance logic</li>
+                                    <li>Linear Interpolation for shooter</li>
+                                    <li>Capacity: 6 balls per run</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card">
+                                <h3 data-en="V2 Auto" data-ar="تلقائي V2">V2 Auto</h3>
+                                <ul class="tech-list" style="grid-template-columns: 1fr;">
+                                    <li>Improved efficiency paths</li>
+                                    <li>Dynamic Aiming while moving</li>
+                                    <li>On-the-fly θ calculation</li>
+                                    <li>Capacity: 6 balls (shooting without stops)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="code-block"
+                            style="background: var(--dark-green); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--matrix-green); font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; margin-top: 1.5rem; overflow-x: auto;">
+                            <span class="js-comment">// PurePursuitPath.java implementation</span><br>
+                            - <span class="js-class">ArrayList</span> <span class="js-variable">waypoints</span> = <span
+                                class="js-keyword">new</span> <span class="js-class">ArrayList</span>&lt;<span
+                                class="js-class">Pose2d</span>&gt;();<br>
+                            - <span class="js-variable">lookAheadDistance</span> = <span
+                                class="js-numeric">12.0</span>;<br>
+                            - <span class="js-function">followPath</span> steps:<br>
+                            &nbsp;&nbsp;<span class="js-numeric">1.</span> Find closest point on path<br>
+                            &nbsp;&nbsp;<span class="js-numeric">2.</span> Calculate curvature to look-ahead point<br>
+                            &nbsp;&nbsp;<span class="js-numeric">3.</span> <span class="js-variable">BASE_SPEED</span> ±
+                            curvature * <span class="js-variable">TRACK_WIDTH</span> / <span class="js-numeric">2</span>
+                        </div>
+                    </div>
+
+                    <div style="flex: 1;" data-aos="fade-left">
+                        <div class="side-by-side-image">
+                            <img src="autonmouspathv1andv2.png" alt="V1/V2 Autonomous Path">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="code-section" data-aos="fade-up">
+                <span class="section-label">// CORE_PHILOSOPHY</span>
+                <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Key Evolution"
+                        data-ar="التطور الجوهري">Key Evolution</span></h2>
+                <p style="margin-bottom:1.5rem; font-weight:700;"
+                    data-en="'Reducing sensor dependency and increasing response speed'"
+                    data-ar="'تقليل الاعتماد على المستشعرات وزيادة سرعة الاستجابة'">
+                    "The transition from V1 to V2 was based on the idea: 'Reducing sensor dependency and increasing
+                    response speed'"
+                </p>
+
+                <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                    <div style="flex: 1;">
+                        <div class="code-block"
+                            style="background: var(--dark-green); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--matrix-green); font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem; overflow-x: auto;">
+                            <span class="js-comment">// TimeBasedLogic.java concept</span><br>
+                            <span class="js-variable">SORTER_DELAY</span> = <span class="js-numeric">0.5s</span>;<br>
+                            <span class="js-keyword">if</span> (<span class="js-variable">timer</span>.<span
+                                class="js-function">time</span>() >= <span class="js-variable">SORTER_DELAY</span>)
+                            {<br>
+                            &nbsp;&nbsp;<span class="js-function">activateSorter</span>();<br>
+                            &nbsp;&nbsp;<span class="js-variable">timer</span>.<span
+                                class="js-function">reset</span>();<br>
+                            }
+                        </div>
+
+                        <div class="content-block">
+                            <div class="block-title" data-en="Dynamic Aiming Integration"
+                                data-ar="تكامل التوجيه الديناميكي">
+                                Dynamic Aiming Integration</div>
+                            <ul class="tech-list" style="margin-bottom: 0;">
+                                <li>Limelight + Pedro Pathing Integration</li>
+                                <li>Update Rate: 50 Hz</li>
+                                <li>Latency: &lt;20ms</li>
+                                <li>Performance: 100% Increase</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="flex: 1;" data-aos="fade-left">
+                        <div class="video-grid" style="grid-template-columns: 1fr; margin-top: 0;">
+                            <div class="video-card">
+                                <div class="video-wrapper">
+                                    <video controls preload="metadata" muted>
+                                        <source src="v2testvideo.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-title" data-en="V2 General Functionality Test"
+                                    data-ar="اختبار الأداء العام لاصدار V2">V2 General Functionality Test</div>
+                            </div>
+                            <div class="video-card">
+                                <div class="video-wrapper">
+                                    <video controls preload="metadata" muted>
+                                        <source src="v2testvideo2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-title" data-en="V2 Secondary System Test"
+                                    data-ar="اختبار النظام الثانوي لاصدار V2">V2 Secondary System Test</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

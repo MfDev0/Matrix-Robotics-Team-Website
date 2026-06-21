@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Matrix - CRAM_V1 CODE" data-ar="ماتريكس - برمجة CRAM_V1">Matrix - CRAM_V1 CODE</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Tajawal:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="matrix-theme.css">
+    <script src="matrix-theme.js" defer></script>
+    <style>
+        .details-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .viewer-box {
+            background: var(--bg-panel);
+            border: 1px solid var(--dark-green);
+            padding: 2rem;
+            text-align: left;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-mono);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--dark-green);
+            padding-bottom: 1rem;
+            color: var(--matrix-green);
+        }
+
+        .code-snippet {
+            color: var(--matrix-green);
+            line-height: 1.5;
+            font-size: 0.9rem;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--matrix-green);
+            text-shadow: var(--glow-strong);
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--matrix-green);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            text-shadow: var(--glow);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-text">
+            <img class="logo-img" src="images/511274287_122104813238922635_683980615426849311_n%20%281%29.jpg"
+                alt="Matrix Logo">
+            <span class="logo-label" data-en="[ MATRIX_ROBOTICS ]" data-ar="[ ماتريكس_للروبوتات ]">[ MATRIX_ROBOTICS
+                ]</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="members.html" class="nav-btn" data-en="Members" data-ar="الأعضاء">Members</a>
+            <a href="howtostart.html" class="nav-btn" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+            <a href="aboutrobotics.html" class="nav-btn" data-en="About Robotics" data-ar="عن الروبوتات">About
+                Robotics</a>
+            <a href="achievements.html" class="nav-btn" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+            <div class="dropdown active" id="decodeDropdown">
+                <button class="nav-btn dropdown-toggle">
+                    <span data-en="Decode" data-ar="تحليل">Decode</span>
+                    <i class="fas fa-chevron-down" class="dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                            data-ar="التوعية">Outreach</span></a>
+                    <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                            data-ar="روبوتاتنا">Our Robots</span></a>
+                    <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                            data-ar="كيف تتعلم">How to Learn</span></a>
+                </div>
+            </div>
+
+            <a href="contact.html" class="nav-btn" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            <a href="meeting.html" class="nav-btn" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+            <button class="lang-btn" id="languageToggle">Arabic</button>
+        </div>
+
+        <div class="hamburger-container">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="members.html" data-en="Members" data-ar="الأعضاء">Members</a>
+        <a href="howtostart.html" data-en="How to Start?" data-ar="كيف تبدأ؟">How to Start?</a>
+        <a href="aboutrobotics.html" data-en="About Robotics" data-ar="عن الروبوتات">About Robotics</a>
+        <a href="achievements.html" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+
+        <div class="mobile-dropdown active" id="mobileDecodeDropdown">
+            <div class="mobile-dropdown-header">
+                <span><i class="fas fa-code"></i> &nbsp;Decode</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="mobile-dropdown-menu">
+                <a href="outreach.html"><i class="fas fa-hand-holding-heart"></i> <span data-en="Outreach"
+                        data-ar="التوعية">Outreach</span></a>
+                <a href="our-robots.html" class="active"><i class="fas fa-robot"></i> <span data-en="Our Robots"
+                        data-ar="روبوتاتنا">Our Robots</span></a>
+                <a href="howtolearn.html"><i class="fas fa-graduation-cap"></i> <span data-en="How to Learn"
+                        data-ar="كيف تتعلم">How to Learn</span></a>
+            </div>
+        </div>
+
+        <a href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="meeting.html" data-en="Meeting" data-ar="اجتماع">Meeting</a>
+
+        <button class="mobile-lang-btn" id="mobileLanguageToggle">
+            <i class="fas fa-globe"></i> <span>Arabic</span>
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="page-header">
+            <h1 class="page-title" data-en="SOURCE_CODE" data-ar="كود_المصدر">SOURCE_CODE</h1>
+            <p style="color:var(--mid-green); font-family:var(--font-mono); font-size: 0.9rem;"
+                data-en="// ACCESSING LOGIC_CORES: CRAM_V1" data-ar="// الوصول لنواة_المنطق: CRAM_V1">//
+                ACCESSING LOGIC_CORES: CRAM_V1</p>
+        </div>
+
+        <div class="details-content">
+            <a href="our-robots.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span data-en="BACK_TO_UNITS" data-ar="العودة_للوحدات">BACK_TO_UNITS</span>
+            </a>
+
+            <div class="details-content" style="padding: 0;">
+                <!-- SECTION 1: TELE-OP & SPINDEXER -->
+                <section class="code-section" data-aos="fade-up">
+                    <span class="section-label">// CORE_TELEOP</span>
+                    <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Tele-Op & Spindexer V1"
+                            data-ar="التحكم عن بعد والترتيب V1">Tele-Op & Spindexer V1</span></h2>
+                    <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                        <div style="flex: 1;">
+                            <p style="color:rgba(0, 255, 65, 0.85); margin-bottom:1.5rem;"
+                                data-en="CRAM_V1 code focused on basic motor synchronization and gamepad mapping. It served as the foundational logic for our telemetry systems and early autonomy efforts. The Spindexer was programmed to handle ball organization before feeding them to the shooter."
+                                data-ar="ركز كود CRAM_V1 على مزامنة المحركات الأساسية وربط وحدة التحكم. كانت الوحدات المنطقية التأسيسية لأنظمة القياس عن بعد وجهودنا المبكرة في الاستقلالية. تمت برمجة نظام الترتيب للتعامل مع تنظيم الكرات قبل تغذيتها للمطلق.">
+                                CRAM_V1 code focused on basic motor synchronization and gamepad mapping. It served as
+                                the foundational logic for our telemetry systems and early autonomy efforts. The
+                                Spindexer was programmed to handle ball organization before feeding them to the shooter.
+                            </p>
+                        </div>
+                        <div style="flex: 1;" data-aos="fade-left">
+                            <div class="video-card">
+                                <div class="video-wrapper">
+                                    <video controls preload="metadata" muted>
+                                        <source src="v1pedropathtuning.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-title" data-en="Pedro Path Tuning" data-ar="ضبط مسارات Pedro">Pedro
+                                    Path Tuning</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 2: VISION & SHOOTER -->
+                <section class="code-section" data-aos="fade-up">
+                    <span class="section-label">// VISION_TARGETING</span>
+                    <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Limelight Shooter Tracking"
+                            data-ar="تتبع المطلق باستخدام Limelight">Limelight Shooter Tracking</span></h2>
+                    <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                        <div style="flex: 1;">
+                            <p style="color:rgba(0, 255, 65, 0.85); margin-bottom:1.5rem;"
+                                data-en="In V1, we integrated the Limelight to track the target hub. The tracking algorithm calculated the offset (tx) and adjusted the drivetrain to align the shooter automatically before launching the ball."
+                                data-ar="في الإصدار الأول، قمنا بدمج Limelight لتتبع الهدف المحوري. تقوم خوارزمية التتبع بحساب الإزاحة (tx) وتعديل نظام الدفع لمحاذاة المطلق تلقائيًا قبل إطلاق الكرة.">
+                                In V1, we integrated the Limelight to track the target hub. The tracking algorithm
+                                calculated the offset (tx) and adjusted the drivetrain to align the shooter
+                                automatically before launching the ball.
+                            </p>
+                            <div class="code-block"
+                                style="background: var(--dark-green); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--matrix-green); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0; overflow-x: auto;">
+                                <span class="js-comment">// VisionShooter.java alignToTarget()</span><br>
+                                <span class="js-keyword">double</span> <span class="js-variable">tx</span> = <span
+                                    class="js-variable">limelight</span>.<span class="js-function">getTx</span>();<br>
+                                <span class="js-keyword">double</span> <span class="js-variable">headingError</span> =
+                                <span class="js-variable">tx</span>;<br>
+                                <span class="js-keyword">double</span> <span class="js-variable">steeringAdjust</span> =
+                                <span class="js-variable">Kp</span> * <span
+                                    class="js-variable">headingError</span>;<br><br>
+                                <span class="js-variable">leftDrive</span>.<span
+                                    class="js-function">setPower</span>(<span
+                                    class="js-variable">steeringAdjust</span>);<br>
+                                <span class="js-variable">rightDrive</span>.<span
+                                    class="js-function">setPower</span>(-<span
+                                    class="js-variable">steeringAdjust</span>);
+                            </div>
+                        </div>
+                        <div style="flex: 1;" data-aos="fade-left">
+                            <div class="video-card">
+                                <div class="video-wrapper">
+                                    <video controls preload="metadata" muted>
+                                        <source src="v1limelighttrackingtest.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-title" data-en="Limelight Tracking Test"
+                                    data-ar="اختبار تتبع Limelight">Limelight Tracking Test</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 3: AUTONOMOUS -->
+                <section class="code-section" data-aos="fade-up">
+                    <span class="section-label">// AUTO_PERFORMANCE</span>
+                    <h2 class="section-title"><i class="fas fa-terminal"></i> <span data-en="Autonomous Performance V1"
+                            data-ar="الأداء المستقل V1">Autonomous Performance V1</span></h2>
+                    <div class="side-by-side-layout" style="align-items: flex-start; margin-top: 2rem;">
+                        <div style="flex: 1;">
+                            <div class="tech-grid" style="grid-template-columns: 1fr; margin-bottom: 1.5rem;">
+                                <div class="content-block">
+                                    <div class="block-title">Execution Metrics</div>
+                                    <ul class="tech-list" style="margin-bottom:1rem;">
+                                        <li>Tuned Pedro Pathing for precise movements</li>
+                                        <li>Consistent hub targeting</li>
+                                        <li>Efficient pre-loaded cargo delivery</li>
+                                    </ul>
+                                    <div class="stat-badge">6 Balls per cycle</div>
+                                </div>
+                                <div class="content-block">
+                                    <div class="block-title">Pathing Implementation</div>
+                                    <p style="font-size:0.85rem; line-height:1.5; color:rgba(0, 255, 65, 0.7);"
+                                        data-en="We utilized Pedro Pathing to create tuned, precise autonomous movements. The tuning process involved strict adjustments to ensure the robot consistently reached the target hubs and delivered the pre-loaded cargo."
+                                        data-ar="استخدمنا Pedro Pathing لإنشاء حركات مستقلة مضبوطة ودقيقة. تضمنت عملية الضبط تعديلات صارمة لضمان وصول الروبوت باستمرار إلى الأهداف وتسليم الحمولة المحملة مسبقًا.">
+                                        We utilized Pedro Pathing to create tuned, precise autonomous movements. The
+                                        tuning
+                                        process involved strict adjustments to ensure the robot consistently reached the
+                                        target
+                                        hubs and delivered the pre-loaded cargo.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Replaced Code block if needed, but for now just text on left -->
+                        </div>
+                        <div style="flex: 1;" data-aos="fade-left">
+                            <div class="side-by-side-image">
+                                <img src="autonmouspathv1andv2.png" alt="V1/V2 Autonomous Path">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+
+</html>
